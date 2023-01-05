@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Controls } from './controls/controls'
+import {Info} from './feedbackInfo/feedbackInfo'
 
 export default class App extends Component{
  state = {
@@ -24,48 +25,28 @@ export default class App extends Component{
   }
 
   countPositiveFeedbackPercentage = () => {
-    if (this.state.good && this.state.neutral && this.state.bad) { return 'no data yet' }
-    else {
       return Math.round((this.state.good / (this.state.good + this.state.neutral + this.state.bad)) * 100)
-   }
-   
+      
  }
 
   render() {
     return (
-      <section>
+      <section style={{
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: 30,
+        color: '#010101'
+      }}>
         <Controls handleIncrement={this.handleIncrement} />
-      <div>
-        <h2>Statistic</h2>
-          <p>Good: {this.state.good}</p>
-          <p>Neutral: {this.state.neutral}</p>
-          <p>Bad: {this.state.bad}</p>
-          <p>Total: {this.countTotalFeedback()}</p>
-          <p>Positive Feedback: {this.countPositiveFeedbackPercentage()}%</p>
-      </div>
-      
-</section>)}
+        <Info good={this.state.good} neutral ={this.state.neutral} bad={this.state.bad} total={this.countTotalFeedback()} 
+         ratio={this.countPositiveFeedbackPercentage()? `${this.countPositiveFeedbackPercentage()}%`: "not data yet"}  />
+      </section>)}
 }
 
 
 
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101'
-//       }}
-//     >
-//       <Section title="">
-//         <FeedbackOptions options={} onLeaveFeedback={}></FeedbackOptions>
-//         <Statistics good={} neutral={} bad={} total={} positivePercentage={}></Statistics>
-//       </Section>
-//     </div>
-//   );
-// };
+
 
