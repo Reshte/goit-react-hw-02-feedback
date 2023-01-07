@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Controls } from './controls/controls'
-import { Info } from './feedbackInfo/feedbackInfo'
+import { Statistics } from './Statistics/Statistics'
 
 export default class App extends Component{
  state = {
@@ -41,8 +41,12 @@ export default class App extends Component{
         color: '#010101'
       }}>
         <Controls handleIncrement={this.handleIncrement} />
-        <Info good={this.state.good} neutral ={this.state.neutral} bad={this.state.bad} total={this.countTotalFeedback()} 
-         ratio={this.countPositiveFeedbackPercentage()? `${this.countPositiveFeedbackPercentage()}%`: "not data yet"}  />
+        {/* <FeedbackOptions options={} onLeaveFeedback={}></FeedbackOptions> */}
+
+        <Statistics       
+          good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} total={this.countTotalFeedback()}
+          positivePercentage ={this.countPositiveFeedbackPercentage()} />
+       
       </section>)}
 }
 

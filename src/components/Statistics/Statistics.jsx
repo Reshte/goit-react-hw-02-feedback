@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const Info = ({ good, neutral, bad, total, ratio }) => {
+export const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   if(good || neutral || bad){   return (
         <div>
         <h2>Statistic</h2>
@@ -8,7 +8,7 @@ export const Info = ({ good, neutral, bad, total, ratio }) => {
           <p>Neutral: {neutral}</p>
           <p>Bad: {bad}</p>
           <p>Total: {total}</p>
-          <p>Positive Feedback: {ratio}</p>
+          <p>Positive Feedback: {positivePercentage}</p>
       </div>
   )
   } else {return (
@@ -18,7 +18,7 @@ export const Info = ({ good, neutral, bad, total, ratio }) => {
 
 }
 
-Info.propTypes = {
+Statistics.propTypes = {
   good: PropTypes.number,
   neutral: PropTypes.number,
   bad: PropTypes.number,
