@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Controls } from './controls/controls'
-import {Info} from './feedbackInfo/feedbackInfo'
+import { Info } from './feedbackInfo/feedbackInfo'
 
 export default class App extends Component{
  state = {
