@@ -23,5 +23,5 @@ Statistics.propTypes = {
   neutral: PropTypes.number,
   bad: PropTypes.number,
   total: PropTypes.number,
-  ratio: PropTypes.any.isRequired,
+  positivePercentage: PropTypes.any.isRequired,
 }

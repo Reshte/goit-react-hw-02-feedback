@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 
 export const WrapperControls = styled.div`
  `;
+ 
 export const Title = styled.h2``;
 
 export const ButtonWrapper = styled.div`

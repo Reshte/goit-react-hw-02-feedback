@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Controls } from './controls/controls'
+import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions'
 import { Statistics } from './Statistics/Statistics'
 
 export default class App extends Component{
@@ -11,12 +11,15 @@ export default class App extends Component{
   
   handleIncrement = (event) => {
     this.setState(perState => {
-        switch (event.target.textContent) {
-        case "Good": return { good: perState.good + 1, };
-        case "Neutral": return { neutral: perState.neutral + 1, };
-        case "Bad": return { bad: perState.bad + 1, };
-        default: console.log('УПС, чет не работает')
-      }
+        const option = event.target.textContent.toLowerCase()
+     return({ [option]: perState[option] + 1, })   
+    
+      //        switch (event.target.textContent) {
+      //   case "Good": return { good: perState.good + 1, };
+      //   case "Neutral": return { neutral: perState.neutral + 1, };
+      //   case "Bad": return { bad: perState.bad + 1, };
+      //   default: console.log('УПС, чет не работает')
+      // }
     })
   }
 
@@ -40,9 +43,7 @@ export default class App extends Component{
         fontSize: 30,
         color: '#010101'
       }}>
-        <Controls handleIncrement={this.handleIncrement} />
-        {/* <FeedbackOptions options={} onLeaveFeedback={}></FeedbackOptions> */}
-
+        <FeedbackOptions options={['Good','Neutral','Bad']} onLeaveFeedback={this.handleIncrement} />
         <Statistics       
           good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} total={this.countTotalFeedback()}
           positivePercentage ={this.countPositiveFeedbackPercentage()} />
