@@ -3,7 +3,7 @@ import { WrapperControls, Title, Button,ButtonWrapper } from 'components/Feedbac
 
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
-    return (
+     return (
      <WrapperControls>
         <Title>Please leave feedback</Title>
         <ButtonWrapper>
@@ -13,9 +13,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 }
 
 
-
-
-
 FeedbackOptions.prototype = {
-  handleIncrement: PropTypes.elementType,
+  options: PropTypes.PropTypes.arrayOf(PropTypes.number),
+  onLeaveFeedback: PropTypes.func.isRequired,
 }

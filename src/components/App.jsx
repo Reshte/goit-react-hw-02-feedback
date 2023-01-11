@@ -13,8 +13,7 @@ export default class App extends Component{
     this.setState(perState => {
         const option = event.target.textContent.toLowerCase()
      return({ [option]: perState[option] + 1, })   
-    
-      //        switch (event.target.textContent) {
+       //        switch (event.target.textContent) {
       //   case "Good": return { good: perState.good + 1, };
       //   case "Neutral": return { neutral: perState.neutral + 1, };
       //   case "Bad": return { bad: perState.bad + 1, };
@@ -22,7 +21,7 @@ export default class App extends Component{
       // }
     })
   }
-
+  
   countTotalFeedback = () => {
      return (this.state.good + this.state.neutral +this.state.bad)
   }
